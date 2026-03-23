@@ -87,7 +87,7 @@ The protocol includes safety patches discovered by running dual-critique on itse
 
 ## Credits
 
-Built by [Lars Bracker](https://github.com/larsbracker). The governance axes are derived from the SR7D framework developed for [Steerable](https://steerable.ai), a decision governance system for financial advisory.
+Built by [Lars Bracker](https://github.com/larsbracker). The governance axes are derived from the SR7D framework developed for [Steerable](https://steerable.org), a decision governance system for financial advisory.
 
 ## License
 
