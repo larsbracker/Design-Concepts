@@ -1,4 +1,4 @@
 {
-  "name": "dual-critique",
-  "description": "Asymmetric dual-critique protocol for Claude Code. Two independent review phases (C1: gap analysis, C2: regression analysis) separated by a firewall — C2 never sees C1's findings. Produces a hardened V2 artifact. Built on seven governance axes from the SR7D framework."
+  "name": "design-concepts",
+  "description": "Battle-tested governance patterns for AI agent systems. Includes dual-critique (asymmetric C1/C2 review with firewall) and convention-enforcement (silent failure audit with hook health monitor). Extracted from the SR7D framework."
 }

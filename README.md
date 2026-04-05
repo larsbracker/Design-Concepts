@@ -1,93 +1,46 @@
-# dual-critique
+# Design Concepts
 
-Asymmetric dual-critique protocol for Claude Code.
+Battle-tested governance patterns for AI agent systems.
 
-Two independent review phases — **C1** finds gaps, **C2** finds regressions — separated by a strict information firewall. C2 never sees what C1 found. Where both phases independently flag the same issue, confidence is high. Where they diverge, you've found a blind spot.
+Each concept is a self-contained principle — independently usable, extracted from production systems, validated through real failures. Pick what fits your workflow.
 
-Produces a hardened **V2** artifact with all patches applied.
+## Concepts
 
-## Why asymmetric?
+| Concept | Problem | Format |
+|---------|---------|--------|
+| [dual-critique](concepts/dual-critique/) | Single-pass review has anchoring bias | Claude Code Skill |
+| [convention-enforcement](concepts/convention-enforcement/) | Conventions without enforcement fail silently | Skill + Hooks + Health Monitor |
 
-Single-pass code review creates anchoring bias. Once a reviewer spots one issue, subsequent findings cluster around it. Dual-critique breaks this pattern:
+## Install as Claude Code Plugin
 
-| Phase | Perspective | Asks |
-|-------|------------|------|
-| **C1** | Constructive reviewer | "What's missing? What's underspecified?" |
-| **C2** | Hostile implementer | "What breaks if I build exactly this?" |
-
-The **firewall** between phases is the key mechanism. C2 operates with zero knowledge of C1's findings. Independent convergence on the same issue is the strongest signal you can get from a review process.
-
-## Installation
+All skills are installable as a single plugin:
 
 ```bash
-/plugin marketplace add larsbracker/dual-critique
-/plugin install dual-critique
+/plugin marketplace add larsbracker/Design-Concepts
+/plugin install Design-Concepts
 ```
 
-## Usage
+This gives you access to all skills: `/dual-critique`, `/convention-enforcement`, etc.
 
-```
-/dual-critique
-```
+## Use Without Claude Code
 
-Works on any artifact: implementation plans, architecture docs, specs, RFCs.
+Every concept includes:
+- A **README** explaining the principle, the failure that motivated it, and how to apply it
+- **Copy-paste hooks** (Python scripts) that work in any automation pipeline
+- **Framework-agnostic guidance** — the patterns apply beyond Claude Code
 
-Pass the artifact inline, as a file reference, or let the skill read it from context.
+Browse the `concepts/` directory and grab what you need.
 
-## Governance Axes
+## Contributing
 
-Every finding is tagged with the governance axis it violates:
+Want to add a concept? See the [template](concepts/_template/README.md) for the structure. Each concept should include:
+- A real failure case (not a theoretical risk)
+- A clear principle (one sentence)
+- A working implementation (code, not just advice)
 
-| Axis | Question |
-|------|----------|
-| System Resilience | Does it handle errors, timeouts, and degraded states? |
-| Spec Fidelity | Does the implementation match the specification? |
-| Change Safety | Are existing contracts and interfaces preserved? |
-| Human Agency | Do humans retain decision authority at critical points? |
-| Justified Overhead | Is added complexity proportional to benefit? |
-| Audit Trail | Are decisions traceable and persisted? |
-| Evidence Quality | Are claims backed by multiple sources? |
+## Origin
 
-These axes are derived from the [SR7D governance framework](https://steerable.ai) — a set of seven core principles and three ethical constraints for AI-assisted decision systems.
-
-## How it works
-
-```
-Artifact ──→ C1 (Gap Analysis) ──→ C1 Matrix
-                                        │
-                                    FIREWALL
-                                        │
-Artifact ──→ C2 (Regression Analysis) ──→ C2 Matrix
-                                        │
-                              ┌─────────┴─────────┐
-                              │    Synthesis       │
-                              │ Convergence Rate   │
-                              │ Stability Check    │
-                              └─────────┬─────────┘
-                                        │
-                              Stable? ──→ V2 (hardened artifact)
-                              Unstable? → Escalate to human
-```
-
-## Safety
-
-The protocol includes safety patches discovered by running dual-critique on itself:
-
-- **Loop prevention**: Max 1 iteration. V2 never triggers another cycle.
-- **False-positive protection**: Triggers on substantive review requests, not casual mentions.
-- **Rollback escalation**: If unstable after V2, escalates to human decision.
-- **Crash safety**: If the skill fails, the artifact remains valid.
-
-## Configuration
-
-| Setting | Default | Description |
-|---------|---------|-------------|
-| Output directory | `docs/critiques/` | Where critique files are saved |
-| Language | English | Output language (`en` or `de`) |
-
-## Credits
-
-Built by [Lars Bracker](https://github.com/larsbracker). The governance axes are derived from the SR7D framework developed for [Steerable](https://steerable.org), a decision governance system for financial advisory.
+These concepts are extracted from [Steerable](https://steerable.org), a decision governance system for financial advisory built on the SR7D framework. The governance patterns are domain-agnostic — they apply wherever AI agents make or support decisions.
 
 ## License
 

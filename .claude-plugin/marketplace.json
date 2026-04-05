@@ -1,15 +1,15 @@
 {
-  "name": "dual-critique",
-  "description": "Asymmetric dual-critique protocol with firewall principle for rigorous plan and spec review",
+  "name": "design-concepts",
+  "description": "Battle-tested governance patterns for AI agent systems — dual-critique, convention-enforcement, and more",
   "owner": {
     "name": "Lars Bracker",
     "email": "lars@steerable.ai"
   },
   "plugins": [
     {
-      "name": "dual-critique",
-      "description": "Asymmetric C1/C2 dual-critique gate — C1 finds gaps, C2 finds regressions, firewall ensures independence. Seven governance axes from the SR7D framework.",
-      "version": "1.0.0",
+      "name": "design-concepts",
+      "description": "Governance patterns for AI agents: asymmetric dual-critique review, convention-enforcement audit with hook health monitor. Each concept is independently usable. Extracted from the SR7D framework.",
+      "version": "2.0.0",
       "source": "./",
       "author": {
         "name": "Lars Bracker",
