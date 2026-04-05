@@ -38,7 +38,8 @@ Layer 1: HOOKS (mechanical — fires on every message/tool call)
    | fails silently after platform update?
 Layer 2: MEMORY (cognitive — loaded at session start)
    | not loaded in this environment?
-Layer 3: DOCUMENTATION (persistent — in project instructions)
+Layer 3: DOCUMENTATION (persistent — in project instructions)<img width="2816" height="1536" alt="Gemini_Generated_Image_oik5amoik5amoik5" src="https://github.com/user-attachments/assets/16e280c5-4acb-495b-98ae-48915004ab6a" />
+
    | truncated by context budget?
 Layer 1: HOOKS catch it anyway
 ```
